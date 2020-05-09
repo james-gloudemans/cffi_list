@@ -1,0 +1,8 @@
+__pycache__/
+CDA.pdf
+.pytest_cache/
+.vscode/
+clist/*.o
+clist/liblist.so
+clist/_*
+clist/test
