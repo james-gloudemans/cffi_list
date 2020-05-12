@@ -1,7 +1,7 @@
 """linkedlist.py:  circular doubly linked list."""
 # standard library
 from collections.abc import MutableSequence
-from typing import Generic, Iterable, Iterator, Optional, TypeVar, Union
+from typing import Any, Generic, Iterable, Iterator, Optional, TypeVar, Union
 
 # third party libraries
 
@@ -49,7 +49,7 @@ class LinkedList(Generic[T], MutableSequence):
             result += 1
         return result
 
-    def __iter__(self) -> Optional[Iterator[T]]:
+    def __iter__(self) -> Iterator[Any]:
         """Return iter(self)."""
         if self.head is None:
             return None
@@ -61,11 +61,14 @@ class LinkedList(Generic[T], MutableSequence):
 
     def __reversed__(self) -> Iterator[T]:
         """Return reversed(self)."""
-        node = self.head.prev
-        yield self.head.prev.data
-        while node is not self.head:
-            node = node.prev
-            yield node.data
+        if self.head is None:
+            return None
+        else:
+            node = self.head.prev
+            yield self.head.prev.data
+            while node is not self.head:
+                node = node.prev
+                yield node.data
 
     def __getitem__(self, i) -> T:
         """Return self[i]."""
