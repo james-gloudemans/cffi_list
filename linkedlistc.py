@@ -11,7 +11,7 @@ class LinkedList(Generic[T]):
     """Circular doubly-linked list."""
 
     def __init__(self, iterable: Optional[Iterable] = None) -> None:
-        """Initialize an empty linked list."""
+        """Initialize an new linked list."""
         # Anchor node for the list
         self._clist = lib.create_list()
         # python nodes need to persist to handle casting of void *
